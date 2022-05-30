@@ -1,0 +1,16 @@
+class FireUtils {
+	
+	static void SwitchMode() {
+		switch ( CVAR.FindCVar("Firemode").GetInt() ) {
+			case 0:
+				CVAR.FindCVar("Firemode").SetInt(1); 
+				break;
+			case 1:
+				CVAR.FindCVar("Firemode").SetInt(2); 
+				break;
+			case 2:
+				CVAR.FindCVar("Firemode").SetInt(0); 
+				break;
+		}
+	}
+}

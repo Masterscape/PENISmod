@@ -1,0 +1,112 @@
+class Util {
+
+    play static void setupFlashlight (int playerID, int flashID) {
+        
+        PlayerPawn act = PlayerPawn(Level.CreateActorIterator(playerID).Next());
+        
+        if (act) {
+        
+            ActorHeadLight light = ActorHeadLight(Actor.Spawn("ActorHeadLight"));
+        
+            light.ChangeTid(flashID);
+
+            light.toFollow = act;
+           
+            light.activate(null);
+            
+            Util.LogDebug("Light created and 'attached'");
+            
+        }
+    
+    }
+    
+    static void LogDebug (String text) {
+    
+        if (CVar.GetCvar("debug")) {        
+            Console.printf("[ZScript]  "..text);
+        }
+    
+    }
+    
+    static int round (double num) {
+    
+        int result = (num - floor(num) > 0.5) ? ceil(num) : floor(num);
+        return result;
+    
+    }
+    
+
+}
+
+class ActorHeadLight : Spotlight {
+
+    PlayerPawn toFollow;
+
+    Vector3 offset;
+    
+    Vector3 finalOffset;
+    
+    double zBump; // z offset for locations that are not CAMERA
+    
+    double angleDiff;    
+    double turnAnglePerTic;
+    bool ready;
+    bool on;
+    
+    void updateFromCvars () {
+  
+        args[0] = 99;
+        args[1] = 99;
+        args[2] = 99;    
+        args[3] = 1024;
+        
+        self.SpotInnerAngle = 16.0;        
+        self.SpotOuterAngle = 28.0;                
+    }
+    
+    
+    override void Activate(Actor activator) {
+        
+        updateFromCvars();
+        on = true;
+        super.Activate(activator);        
+
+    }
+    
+    
+    override void DeActivate(Actor activator) {
+    
+        on = false;
+        super.DeActivate(activator);
+    
+    }
+        
+    
+    override void Tick() {
+    
+        if (ready && on) {
+                         
+            A_SetAngle(toFollow.angle, 0);
+            
+            Vector2 finalOffset2D = RotateVector ((0, 0), toFollow.angle - 90.0); 
+                        
+            finalOffset = (finalOffset2D.x, finalOffset2D.y, toFollow.ViewHeight);
+            
+            A_SetPitch(toFollow.pitch, SPF_INTERPOLATE);
+            
+            SetOrigin(self.toFollow.pos + finalOffset, true);
+    
+        } 
+		
+		else if (on && self.toFollow) {
+
+            ready = true;
+            
+            zBump = (toFollow.height - toFollow.viewheight) / 2;
+        }
+        
+        Super.Tick();    
+             
+    }
+    
+}

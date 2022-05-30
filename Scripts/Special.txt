@@ -1,0 +1,10 @@
+Actor RPlayer : DoomPlayer {
+	Player.ForwardMove 1.3
+	Player.SideMove 1.1
+	
+	Player.Face ""
+
+	Player.StartItem "FistRedux" 1
+	Player.StartItem "Enforcer", 1
+	Player.StartItem "Clip", 128
+}

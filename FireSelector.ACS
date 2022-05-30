@@ -1,0 +1,35 @@
+#library "FireSelector"
+
+#include "zcommon.acs"
+
+script "togglefiremode" (void) {
+	ScriptCall("FireUtils", "SwitchMode");
+}
+
+script "GetFiremode" (void) {
+	SetResultValue( GetCVAR("Firemode") );
+}
+
+script "show-CM-Message" ENTER {
+	int mode = GetCVAR("Firemode");
+	
+	if ( CheckInventory("HasRifle") == 1 ) {
+		switch(mode) {
+			case 1:
+				FireMessage("FULL-AUTO", CR_WHITE);
+				break;
+			case 2:
+				FireMessage("BURST-FIRE", CR_WHITE);
+				break;
+			case 0:
+				FireMessage("SEMI-AUTO", CR_WHITE);
+				break;
+	}
+	delay(2);
+	restart;
+}
+
+function void FireMessage ( str msg , int color ) {
+	SetFont("CHPFONT");
+	HudMessage(s:msg; HUDMSG_LAYER_OVERHUD, 1, color, 0.08, 0.95, 0.2);
+}

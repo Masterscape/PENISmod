@@ -1,0 +1,10 @@
+gameinfo
+{
+	titlemusic = "M_MAIN"
+	
+	AddEventHandlers = "StepEventHandler"
+	AddEventHandlers = "LeaningHandler"
+	ForceKillScripts = true
+	
+	PlayerClasses = "RPlayer"
+}

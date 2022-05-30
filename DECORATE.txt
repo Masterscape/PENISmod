@@ -1,0 +1,69 @@
+#include "Scripts/SFX/FireSpawner"
+#include "Scripts/SFX/FogGenerator"
+
+#include "Scripts/Weapons/FistRedux"
+#include "Scripts/Weapons/Enforcer"
+
+#include "Scripts/Special"
+#include "Scripts/BDGore"
+#include "Scripts/BMVanilla" 
+
+Actor FSprite {	+FLATSPRITE -SOLID -PUSHABLE +NOGRAVITY -FLOORCLIP}
+
+Actor IsOverWater : Inventory{inventory.maxamount 1}
+Actor IsOverSlime : Inventory{inventory.maxamount 1}
+Actor IsOverSludge : Inventory{inventory.maxamount 1}
+Actor IsOverBlood : Inventory{inventory.maxamount 1}
+Actor IsOverNukage : Inventory{inventory.maxamount 1}
+Actor AnimuGore : Inventory{inventory.maxamount 1}
+Actor IsOverLava : Inventory{inventory.maxamount 1}
+Actor LowGraphicsMode : Inventory{inventory.maxamount 1}
+Actor IsOverSlimy : Inventory{inventory.maxamount 1}
+
+Actor Painting1 : FSprite 30000
+{
+	States
+	{
+		Spawn:
+			PHOT A -1
+			Stop
+	}
+}
+
+Actor ZombiemanSpawner : RandomSpawner 3004	 {
+	Dropitem "Soldier"
+}
+
+Actor ShotgunnerSpawner : RandomSpawner 9 {
+	Dropitem "Shotgunner"
+}
+
+Actor MachineGunnerSpawner : RandomSpawner 65 {
+	Dropitem "Machinegunner"
+}
+
+Actor ImpSpawner : RandomSpawner 3001 {
+	Dropitem "Imp"
+}
+
+Actor KnightSpawner : RandomSpawner 69 {
+	Dropitem "PRKnight"
+}
+
+Actor BaronSpawner : RandomSpawner 3003 {
+	Dropitem "PRBaron"
+}
+
+Actor CacoSpawner : RandomSpawner 3005 {
+	Dropitem "Meatball"
+	Dropitem "CrosshairMeatball", 128
+}
+
+Actor PinkySpawner : RandomSpawner 3002 {
+	Dropitem "Pinky"
+}
+
+Actor SpectreSpawner : RandomSpawner 58 {
+	DropItem "PinkyHidden"
+}
+

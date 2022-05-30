@@ -1,0 +1,185 @@
+//Enforcer
+weapons/enforcerup	ENFCUP
+weapons/enforcerfire	ENFCFIRE
+weapons/enforcerdry	ENFCDRY
+weapons/enforcerout	ENFCOUT
+weapons/enforcerin	ENFCIN
+
+SFX/FireStart	FIRESTRT
+SFX/FireLoop1	FIRELOP1
+SFX/FireLoop2	FIRELOP2
+SFX/FireLoop3	FIRELOP3
+SFX/FireDie	FIREDIE
+
+$Limit SFX/FireStart	0
+$Limit SFX/FireLoop	0
+$Limit SFX/FireDie	0
+
+
+$random SLOP		{ SLOP1 SLOP2 SLOP3 }
+SLOP1 SLOP1
+SLOP2 SLOP2
+SLOP3 SLOP3
+
+// Gore
+$random misc/xdeath		{ misc/xdeath1a misc/xdeath1b misc/xdeath1c misc/xdeath1d misc/xdeath1e misc/xdeath1f misc/xdeath2a misc/xdeath2b misc/xdeath2c misc/xdeath2d misc/xdeath2e misc/xdeath2f misc/xdeath3a misc/xdeath3b misc/xdeath3c misc/xdeath4a misc/xdeath4b misc/xdeath4c }
+misc/xdeath1a			dsxdth1a
+misc/xdeath1b			dsxdth1b
+misc/xdeath1c			dsxdth1c
+misc/xdeath1d			dsxdth1d
+misc/xdeath1e			dsxdth1e
+misc/xdeath1f			dsxdth1f
+$random misc/xdeath1		{ misc/xdeath1a misc/xdeath1b misc/xdeath1c misc/xdeath1d misc/xdeath1e misc/xdeath1f }
+misc/xdeath2a			dsxdth2a
+misc/xdeath2b			dsxdth2b
+misc/xdeath2c			dsxdth2c
+misc/xdeath2d			dsxdth2d
+misc/xdeath2e			dsxdth2e
+misc/xdeath2f			dsxdth2f
+$random misc/xdeath2		{ misc/xdeath2a misc/xdeath2b misc/xdeath2c misc/xdeath2d misc/xdeath2e misc/xdeath2f }
+misc/xdeath3a			dsxdth3a
+misc/xdeath3b			dsxdth3b
+misc/xdeath3c			dsxdth3c
+$random misc/xdeath3		{ misc/xdeath3a misc/xdeath3b misc/xdeath3c }
+misc/xdeath4a			dsxdth4a
+misc/xdeath4b			dsxdth4b
+misc/xdeath4c			dsxdth4c
+$random misc/xdeath4		{ misc/xdeath4a misc/xdeath4b misc/xdeath4c }
+
+
+$random misc/xdeath5		{ misc/xdeath4a misc/xdeath4b misc/xdeath2a misc/xdeath2b misc/xdeath2e}
+
+$volume misc/xdeath 0.3
+$volume misc/xdeath1 0.5 //blop glop
+$volume misc/xdeath2 0.3 //gibs falling1
+$volume misc/xdeath3 0.3 //gibs falling2
+$volume misc/xdeath4 0.3 //bones crushing
+$volume misc/xdeath5 0.4 //bullet hit
+$limit misc/xdeath5 4
+$rolloff blooddrop 200 1000
+
+LQDRIP1 LQDRIP1
+LQDRIP2 LQDRIP2
+LQDRIP3 LQDRIP3
+LQDRIP4 LQDRIP4
+LQDRIP5 LQDRIP5
+LQDRIP6 LQDRIP6
+LQDRIP7 LQDRIP7
+LQDRIP8 LQDRIP8
+LQDRIP9 LQDRIP9
+LQDRIP10 LQDRIP10
+LQDRIP11 LQDRIP11
+LQDRIP12 LQDRIP12
+LQDRIP13 LQDRIP13
+LQDRIP14 LQDRIP14
+
+$random blooddrop  { LQDRIP1 LQDRIP2 LQDRIP3 } 
+$rolloff blooddrop 10 400
+$random blooddrop2  { LQDRIP4 LQDRIP5 LQDRIP6 LQDRIP7 }
+$rolloff blooddrop2 10 400
+$random blooddrop3  { LQDRIP8 LQDRIP9 LQDRIP10 LQDRIP11 LQDRIP12 LQDRIP13 LQDRIP14 LQDRIP14 } 
+$rolloff blooddrop3 10 400
+
+//==============
+// Footsteps
+//==============
+
+step/carpet1 carpet1
+step/carpet2 carpet2
+step/carpet3 carpet3
+step/carpet4 carpet4
+$random step/carpet
+	{ step/carpet1 step/carpet2 step/carpet3 step/carpet4 }
+
+step/crete1 crete1
+step/crete2 crete2
+step/crete3 crete3
+step/crete4 crete4
+$random step/crete
+	{ step/crete1 step/crete2 step/crete3 step/crete4 }
+
+step/default1 default1
+step/default2 default2
+step/default3 default3
+step/default4 default4
+$random step/default
+	{ step/default1 step/default2 step/default3 step/default4 }
+
+step/dirt1 dirt1
+step/dirt2 dirt2
+step/dirt3 dirt3
+step/dirt4 dirt4
+$random step/dirt
+	{ step/dirt1 step/dirt2 step/dirt3 step/dirt4 }
+
+step/gross1 gross1
+step/gross2 gross2
+step/gross3 gross3
+step/gross4 gross4
+$random step/gross
+	{ step/gross1 step/gross2 step/gross3 step/gross4 }
+
+step/grass1 grass1
+step/grass2 grass2
+step/grass3 grass3
+step/grass4 grass4
+$random step/grass
+	{ step/grass1 step/grass2 step/grass3 step/grass4 }
+
+step/gravel1 gravel1
+step/gravel2 gravel2
+step/gravel3 gravel3
+step/gravel4 gravel4
+$random step/gravel
+	{ step/gravel1 step/gravel2 step/gravel3 step/gravel4 }
+
+step/hot hot1
+$alias step/lava step/hot
+
+step/panel1 panel1
+step/panel2 panel2
+step/panel3 panel3
+step/panel4 panel4
+step/panel5 panel5
+$random step/panel
+	{ step/panel1 step/panel2 step/panel3 step/panel4 step/panel5 }
+$volume step/panel 0.6
+
+step/plank1 plank1
+step/plank2 plank2
+step/plank3 plank3
+step/plank4 plank4
+$random step/plank
+	{ step/plank1 step/plank2 step/plank3 step/plank4 }
+$volume step/plank 0.8
+
+step/slosh1 slosh1
+step/slosh2 slosh2
+step/slosh3 slosh3
+step/slosh4 slosh4
+$random step/slosh
+	{ step/slosh1 step/slosh2 step/slosh3 step/slosh4 }
+
+step/tile1 tile1
+step/tile2 tile2
+step/tile3 tile3
+step/tile4 tile4
+$random step/tile
+	{ step/tile1 step/tile2 step/tile3 step/tile4 }
+
+step/tin1 tin1
+step/tin2 tin2
+step/tin3 tin3
+step/tin4 tin4
+$random step/tin
+	{ step/tin1 step/tin2 step/tin3 step/tin4 }
+
+step/wood1 wood1
+step/wood2 wood2
+step/wood3 wood3
+step/wood4 wood4
+$random step/wood
+	{ step/wood1 step/wood2 step/wood3 step/wood4 }
+
+$alias step/nuke step/slosh
+$alias step/sludge step/slosh

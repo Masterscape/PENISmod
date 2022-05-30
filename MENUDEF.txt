@@ -1,0 +1,193 @@
+//
+// Brutal Doom Blood Stuff
+//
+
+OptionMenu "OptionsMenu"
+{
+	Title "OPTIONS"
+	Submenu "Brutal Bolognese Gore Options",			"BologneseOptions"
+	StaticText " "
+	Submenu "Customize Controls",		"CustomizeControls"
+	Submenu "Mouse options",			"MouseOptions"
+	Submenu "Joystick options",			"JoystickOptions"
+	StaticText " "
+	Submenu "Player Setup",				"PlayerMenu"
+	Submenu "Gameplay Options",			"GameplayOptions"
+	Submenu "Compatibility Options",	"CompatibilityOptions"
+	Submenu "Automap Options",			"AutomapOptions"
+	Submenu "HUD Options",				"HUDOptions"
+	Submenu "Miscellaneous Options",	"MiscOptions"
+	Submenu "Sound Options",			"SoundOptions"
+	Submenu "Display Options",			"VideoOptions"
+	Submenu "Set video mode",			"VideoModeMenu"
+	StaticText " "
+	SafeCommand "Reset to defaults",	"reset2defaults"
+	SafeCommand	"Reset to last saved",	"reset2saved"
+	Command "Go to console",			"menuconsole"
+}
+
+
+OptionMenu "BologneseOptions"
+{
+
+
+  Title "Brutal Bolognese Options"
+	StaticText " "
+
+  Option "Which mode are you playing", "isrunningzandronum", "SelectEngineType"
+  StaticText "Singleplayer/Multiplayer requires different CVARs for blood amount."
+  StaticText " "
+  StaticText " "
+  
+   Option "Blood Amount (Server/Singleplayer)", "zdoombrutalblood", "BrutalBlood"
+  Option "Blood Amount (Client/Multiplayer)", "bd_bloodamount", "BrutalBlood"
+  StaticText "How much blood you want to see?"
+  StaticText " "
+  
+  Option "Minimum health for gibbing ", "bd_mingibhealth", "mingibhealth"
+  StaticText "cvar bd_mingibhealth"
+  StaticText "Increase this if you are seeing zombies being exploded"
+  StaticText "by pea shooter bullets, or decrease it for maximum hilarity."
+  StaticText " "
+  
+  Option "Max Wall Decals", "cl_maxdecals", "maxdecals"
+  Option "Max Gibs and Blood Pools", "sv_corpsequeuesize", "maxgibs"
+  StaticText " "
+}
+
+OptionValue "BrutalBlood"
+{
+	1, "1-Minimal"
+	2, "2-Normal"
+	3, "3-Quentin Tarantino Movie"
+	4, "4-Anime Blood"
+	5, "5-Geisers of Blood"
+}
+
+
+OptionValue "mingibhealth"
+{
+	 1, "Always Gib"
+	-5, "-5"
+	-10, "-10"
+	-15, "-15"
+	-20, "-20"
+	-25, "-25"
+	-30, "-30"
+	-40, "-40"
+	-50, "-50"
+	-60, "-60"
+	-70, "-70"
+	-80, "-80"
+	-90, "-90"
+	-100, "-100"
+}
+
+OptionValue "YesOrNo"
+{
+	0, "No"
+	1, "Yes"
+}
+
+
+OptionValue "YesOrNoFalse"
+{
+	1, "No"
+	0, "Yes"
+}
+
+
+OptionValue "SelectEngineType"
+{
+	1, "Multiplayer"
+	0, "Singleplayer"
+}
+
+
+
+OptionValue "maxdecals"
+{
+	1, "0"
+	128, "128"
+	512, "512"
+	1024, "1024"
+	2056, "2056"
+	5102, "5102"
+	9999, "9999"
+}
+
+
+OptionValue "maxgibs"
+{
+	1, "0"
+	64, "64"
+	100, "100"
+	500, "500"
+	1000, "1000"
+	2000, "2000"
+	5000, "5000"
+	10000, "10000"
+	25000, "25000"
+	50000, "50000"
+}
+
+//
+//	CrosshairHP Stuff
+//
+
+AddOptionMenu "OptionsMenu"
+{
+	Submenu "CrosshairHP Options", "CHP_Options"
+}
+
+OptionMenu "CHP_Options"
+{
+	Title "CrosshairHP Options"
+	Option "Show CrosshairHP", "chp_visible", "CHP_YesNo"
+	StaticText ""
+	StaticText "General Options", 1
+	Slider "Fade Time in Seconds", "chp_fade", 0.0, 1.5, 0.1, 2
+	Slider "Opacity Percentage", "chp_opacity", 10, 100, 1, 0
+	Option "Show Actor Names", "chp_showname", "CHP_YesNo"
+	Option "Show Destructible Object HP", "chp_showall", "CHP_YesNo"
+	Option "Show Health Percentage", "chp_showpercentage", "CHP_YesNo"
+	Option "Show Hidden Monsters", "chp_showhidden", "CHP_YesNo"
+	Option "Size Adjustment", "chp_size", "CHP_Size"
+	StaticText ""
+	StaticText "Position Options", 1
+	StaticText "You can specify a custom position"
+	StaticText "for CrosshairHP below. Note that it's"
+	StaticText "not possible to exceed the boundries"
+	StaticText "of the current resolution."
+	StaticText ""
+	Option "Position Preset", "chp_position", "CHP_Position"
+	StaticText ""
+	StaticText "If the chosen preset is custom, you"
+	StaticText "can further tweak the position below."
+	StaticText ""
+	Slider "Horizontal Position", "chp_x", 0, 3840, 1, 0
+	Slider "Vertical Position", "chp_y", 0, 2160, 1, 0
+}
+
+OptionValue "CHP_Position"
+{
+	0, "Custom"
+	1, "Top"
+	2, "Above Crosshair"
+	3, "At Crosshair"
+	4, "Below Crosshair"
+	5, "Bottom"
+}
+
+OptionValue "CHP_Size"
+{
+	0, "None"
+	1, "Double"
+	2, "Triple"
+}
+
+OptionValue "CHP_YesNo"
+{
+	0, "No"
+	1, "Yes"
+}
